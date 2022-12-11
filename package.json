@@ -1,0 +1,29 @@
+{
+  "name": "clipbackup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "save": "node gettingClipDataAndSave.js",
+    "down": "node aggregateClipsDownVideo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bishil06/clipbackup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bishil06/clipbackup/issues"
+  },
+  "homepage": "https://github.com/bishil06/clipbackup#readme",
+  "dependencies": {
+    "@twurple/api": "^5.2.7",
+    "@twurple/auth": "^5.2.7",
+    "dotenv": "^16.0.3",
+    "mongodb": "^4.12.1",
+    "webdav": "^4.11.2",
+    "youtube-dl-exec": "^2.1.10"
+  }
+}
