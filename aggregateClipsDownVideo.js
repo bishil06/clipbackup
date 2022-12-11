@@ -75,11 +75,17 @@ const dbpipeline =  [
 ];
 
 
-client.connect()
-  .then(() => {
-    const cursor = collection.aggregate(dbpipeline)
-    cursor.maxTimeMS(1000*100000)
+async function infinityCall() {
+  return client.connect()
+    .then(() => {
+      const cursor = collection.aggregate(dbpipeline)
+      cursor.maxTimeMS(1000*100000)
 
-    pipeline(cursor.stream(), new WebDevDownStream())
-      .then(() => client.close())
-  })
+      return pipeline(cursor.stream(), new WebDevDownStream())
+        .then(() => client.close())
+    })
+    .catch(console.error)
+    .then(infinityCall)
+}
+
+infinityCall()
